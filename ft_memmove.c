@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 18:32:20 by mariosan          #+#    #+#             */
-/*   Updated: 2023/05/28 19:49:09 by mariosan         ###   ########.fr       */
+/*   Created: 2023/05/28 19:32:25 by mariosan          #+#    #+#             */
+/*   Updated: 2023/05/28 19:49:11 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stddef.h>
 
-void *memset(void *b, int c, size_t len) 
+void    *memmove(void *dst, const void *src, size_t len)
 {
-    unsigned char *p; 
-    
-    p = b;
-    size_t i;
-    
-    i = 0;
-    while (i < len) 
+    unsigned char *d;
+    unsigned char *s;
+
+    d = dst;
+    s = src;
+    if (dst < src)
     {
-        p[i] = (unsigned char)c;
-        i++;
-    }
-    return b;
-}
 
-
-
-
-void *memset(void *s, int c, size_t n) {
-    unsigned char *p = s;
-    unsigned char value = (unsigned char)c;
     
-    while (n > 0) {
-        *p++ = value;
-        n--;
+        while (len > 0)
+        {
+            dst = src;
+            dst++;
+            src++;
+            len--;
+        }
     }
-    
-    return s;
+    else if (dst < src)
+    {
+        while (len > 0)
+        {
+            
+        }
+    }
 }

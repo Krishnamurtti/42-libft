@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 18:32:20 by mariosan          #+#    #+#             */
-/*   Updated: 2023/05/28 19:49:09 by mariosan         ###   ########.fr       */
+/*   Created: 2023/05/24 20:20:19 by mariosan          #+#    #+#             */
+/*   Updated: 2023/05/28 19:49:01 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stddef.h>
 
-void *memset(void *b, int c, size_t len) 
+void    *memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-    unsigned char *p; 
-    
-    p = b;
+    unsigned char *d;
+    unsigned char *s;
     size_t i;
-    
+
+    d = dst;
+    s = src;
     i = 0;
-    while (i < len) 
+    while (i < n)
     {
-        p[i] = (unsigned char)c;
+        d[i] = s[i];
         i++;
     }
-    return b;
+    return (dst);
 }
 
 
 
 
-void *memset(void *s, int c, size_t n) {
-    unsigned char *p = s;
-    unsigned char value = (unsigned char)c;
-    
-    while (n > 0) {
-        *p++ = value;
-        n--;
-    }
-    
-    return s;
-}
+
+
+

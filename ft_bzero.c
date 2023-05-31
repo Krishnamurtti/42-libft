@@ -1,45 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 18:32:20 by mariosan          #+#    #+#             */
-/*   Updated: 2023/05/28 19:49:09 by mariosan         ###   ########.fr       */
+/*   Created: 2023/05/24 20:02:25 by mariosan          #+#    #+#             */
+/*   Updated: 2023/05/28 19:49:03 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-void *memset(void *b, int c, size_t len) 
+void    bzero(void *s, size_t n)
 {
-    unsigned char *p; 
-    
-    p = b;
+    unsigned char *p;
     size_t i;
-    
+
+    p = s;
     i = 0;
-    while (i < len) 
+    if (n != 0)
     {
-        p[i] = (unsigned char)c;
-        i++;
+        while (i < n)
+        {
+            p[i] = 0; 
+            i++;
+        }
     }
-    return b;
+    return (0);
 }
 
+// 0 = NULL //
 
 
 
-void *memset(void *s, int c, size_t n) {
-    unsigned char *p = s;
-    unsigned char value = (unsigned char)c;
-    
-    while (n > 0) {
-        *p++ = value;
-        n--;
+
+
+
+void    bzero(void *s, size_t n) 
+{
+    unsigned char *p = s; // Convertir el puntero a unsigned char
+
+    while (n > 0) 
+    {
+        *p = 0; // Establecer el byte en cero
+        p++;    // Avanzar al siguiente byte
+        n--;      // Decrementar el contador
     }
-    
-    return s;
 }

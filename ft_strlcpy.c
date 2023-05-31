@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 18:32:20 by mariosan          #+#    #+#             */
-/*   Updated: 2023/05/28 19:49:09 by mariosan         ###   ########.fr       */
+/*   Created: 2023/05/31 11:43:10 by mariosan          #+#    #+#             */
+/*   Updated: 2023/05/31 12:16:56 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-void *memset(void *b, int c, size_t len) 
+size_t  ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-    unsigned char *p; 
+    size_t src_len = 0;
+    while (src[src_len] != '\0') {
+        src_len++;
+    }
     
-    p = b;
-    size_t i;
-    
-    i = 0;
-    while (i < len) 
+    size_t dst_len = 0;
+    while (dst_len < dstsize - 1 && src[dst_len]) 
     {
-        p[i] = (unsigned char)c;
-        i++;
-    }
-    return b;
-}
-
-
-
-
-void *memset(void *s, int c, size_t n) {
-    unsigned char *p = s;
-    unsigned char value = (unsigned char)c;
-    
-    while (n > 0) {
-        *p++ = value;
-        n--;
+        dst[dst_len] = src[dst_len];
+        dst_len++;
     }
     
-    return s;
+    if (dstsize > 0) 
+    {
+        dst[dst_len] = '\0';
+    }
+    
+    return src_len;
 }

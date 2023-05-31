@@ -1,10 +1,18 @@
-#include <libft.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/06 12:30:11 by mariosan          #+#    #+#             */
+/*   Updated: 2023/05/06 13:04:22 by mariosan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int isalpha(int c) 
+#include "libft.h"
+
+int ft_isalpha(int c)
 {
-    return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+    return (c >= 65 && c <= 90 || c >= 95 && c <= 122 );
 }
-
-/* Comprobamos si el carácter es una letra mayúscula o una letra minúscula. 
-Si el carácter es una letra del alfabeto, la función devuelve 1. 
-De lo contrario, devuelve 0. */

@@ -1,45 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 18:32:20 by mariosan          #+#    #+#             */
-/*   Updated: 2023/05/28 19:49:09 by mariosan         ###   ########.fr       */
+/*   Created: 2023/05/31 12:18:00 by mariosan          #+#    #+#             */
+/*   Updated: 2023/05/31 12:49:35 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-void *memset(void *b, int c, size_t len) 
+size_t  strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-    unsigned char *p; 
-    
-    p = b;
-    size_t i;
-    
-    i = 0;
-    while (i < len) 
+    size_t  srclen;
+    size_t  i;          // Contador para recorrer
+    srclen = ft_strlen(src);
+
+    while (src[i] && i < dstsize - 1)
     {
-        p[i] = (unsigned char)c;
+        dst[i + srclen] = src[i];
         i++;
     }
-    return b;
-}
-
-
-
-
-void *memset(void *s, int c, size_t n) {
-    unsigned char *p = s;
-    unsigned char value = (unsigned char)c;
-    
-    while (n > 0) {
-        *p++ = value;
-        n--;
+    if (dstsize > 0)
+    {
+        dst[i + srclen] = '\0';
     }
-    
-    return s;
+    return (i);
 }
