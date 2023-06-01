@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 19:32:25 by mariosan          #+#    #+#             */
-/*   Updated: 2023/06/01 19:11:52 by mariosan         ###   ########.fr       */
+/*   Created: 2023/06/01 18:16:55 by mariosan          #+#    #+#             */
+/*   Updated: 2023/06/01 18:41:37 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void    *memmove(void *dst, const void *src, size_t len)
+int strncmp(const char *s1, const char *s2, size_t n)
 {
-    unsigned char *d;
-    unsigned char *s;
+    unsigned char   *p1;
+    unsigned char   *p2;
 
-    d = dst;
-    s = src;
-    if (dst < src)
+    p1 = s1;
+    p2 = s2;
+
+    size_t  i;
+
+    i = 0;
+    while (i < n && (p1[i] || p2[i]))
     {
-        while (len > 0)
-        {
-            dst = src;
-            dst++;
-            src++;
-            len--;
-        }
+        if (p1[i] == p2[i])
+            i++;
+        else
+            return (p1[i] - p2[i]);
     }
-    else if (dst < src)
-    {
-        while (len > 0)
-        {
-            
-        }
-    }
+    return (0);
 }
