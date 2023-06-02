@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 19:32:25 by mariosan          #+#    #+#             */
-/*   Updated: 2023/06/02 15:10:17 by mariosan         ###   ########.fr       */
+/*   Created: 2023/06/02 14:12:21 by mariosan          #+#    #+#             */
+/*   Updated: 2023/06/02 14:53:51 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void    *memmove(void *dst, const void *src, size_t len)
+char    *strnstr(const char *haystack, const char *needle, size_t len)
 {
-    unsigned char *d;
-    unsigned char *s;
+    size_t  i;
 
-    d = (unsigned char *)dst;
-    s = (const unsigned char *)src;
+    i = 0;
     
-    if (d == s)
-        return (dst);
-    if (d < s)
+    while (haystack)
+        while (needle == haystack)
+        haystack++;
     {
-        while (len > 0)
-        {
-            d = s;
-            d++;
-            s++;
-            len--;
-        }
+        
     }
-    else if (d < s)
-    {
-        while (len > 0)
-        {
-            
-        }
-    }
+    
 }
+
+
+
+
+

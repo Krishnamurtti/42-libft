@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 19:32:25 by mariosan          #+#    #+#             */
-/*   Updated: 2023/06/02 15:10:17 by mariosan         ###   ########.fr       */
+/*   Created: 2023/06/02 13:59:20 by mariosan          #+#    #+#             */
+/*   Updated: 2023/06/02 14:11:10 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void    *memmove(void *dst, const void *src, size_t len)
+int memcmp(const void *s1, const void *s2, size_t n)
 {
-    unsigned char *d;
-    unsigned char *s;
-
-    d = (unsigned char *)dst;
-    s = (const unsigned char *)src;
+    const unsigned char   *str1;
+    const unsigned char   *str2;
     
-    if (d == s)
-        return (dst);
-    if (d < s)
+    str1 = (const unsigned char *)s1;
+    str2 = (const unsigned char *)s2;
+    size_t  i;
+
+    i = 0;
+    while (i < n)
     {
-        while (len > 0)
-        {
-            d = s;
-            d++;
-            s++;
-            len--;
-        }
+        if (str1[i] == str2[i])
+            i++;
+        else
+            return (str1[i] - str2[i]);
     }
-    else if (d < s)
-    {
-        while (len > 0)
-        {
-            
-        }
-    }
+    return (0);
 }
