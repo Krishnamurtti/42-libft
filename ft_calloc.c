@@ -1,49 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 20:02:25 by mariosan          #+#    #+#             */
-/*   Updated: 2023/06/03 21:30:10 by mariosan         ###   ########.fr       */
+/*   Created: 2023/06/02 15:44:43 by mariosan          #+#    #+#             */
+/*   Updated: 2023/06/03 20:09:14 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stddef.h>
+#include <stdlib.h>
 
-void    bzero(void *s, size_t n)
+void    *calloc(size_t count, size_t size)
 {
-    unsigned char *p;
-    size_t i;
+    size_t  total;
+    size_t  i;
 
-    p = s;
+    total = count * size;
+    void *ptr = malloc(total);
     i = 0;
-    if (n != 0)
+    while(ptr)
     {
-        while (i < n)
-        {
-            p[i] = 0; 
-            i++;
-        }
+        ptr + i = 0;
     }
-}
+    free(ptr);
 
-// 0 = NULL //
-
-
-
-
-
-
-void    bzero(void *s, size_t n) 
-{
-    unsigned char *p = s; // Convertir el puntero a unsigned char
-
-    while (n > 0) 
-    {
-        *p++ = 0;
-        n--;      
-    }
+    return (ptr);
 }
