@@ -6,7 +6,7 @@
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:44:43 by mariosan          #+#    #+#             */
-/*   Updated: 2023/06/03 20:09:14 by mariosan         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:14:05 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ void    *calloc(size_t count, size_t size)
     size_t  i;
 
     total = count * size;
+    if (count == 0 || size == 0)
+        return (NULL);
+    
     void *ptr = malloc(total);
-    i = 0;
-    while(ptr)
-    {
-        ptr + i = 0;
-    }
-    free(ptr);
-
+    
+    if (ptr != NULL)
+        memset(ptr, 0, total);
     return (ptr);
 }

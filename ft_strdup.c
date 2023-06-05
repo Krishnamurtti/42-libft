@@ -1,46 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 20:02:25 by mariosan          #+#    #+#             */
-/*   Updated: 2023/06/05 15:15:21 by mariosan         ###   ########.fr       */
+/*   Created: 2023/06/05 15:40:16 by mariosan          #+#    #+#             */
+/*   Updated: 2023/06/05 15:53:03 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
 
-void    bzero(void *s, size_t n)
+char    *strdup(const char *s1)
 {
-    unsigned char *p;
-    size_t i;
+    const char *s2;
+    size_t  len;
 
-    p = s;
-    i = 0;
-    if (n != 0)
-    {
-        while (i < n)
+    len = ft_strlen(s1);
+    char *ptr = malloc((len + 1)*sizeof(char));
+
+    if (ptr != NULL)
+        while(*s1)
         {
-            p[i] = 0; 
-            i++;
+            *s2++ = *s1++;
         }
-    }
-}
-
-
-
-
-
-void    bzero(void *s, size_t n) 
-{
-    unsigned char *p = s; // Convertir el puntero a unsigned char
-
-    while (n > 0) 
-    {
-        *p++ = 0;
-        n--;      
-    }
+    return (ptr);
 }

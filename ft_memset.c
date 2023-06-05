@@ -6,7 +6,7 @@
 /*   By: mariosan <mariosan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 18:32:20 by mariosan          #+#    #+#             */
-/*   Updated: 2023/06/02 16:07:35 by mariosan         ###   ########.fr       */
+/*   Updated: 2023/06/05 15:23:26 by mariosan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,11 @@ void *memset(void *b, int c, size_t len)
     unsigned char *p; 
     
     p = b;
-    size_t i;
-    
-    i = 0;
-    while (i < len) 
+    while (len > 0) 
     {
-        p[i] = (unsigned char)c;
-        i++;
+        *p++ = (unsigned char)c;
+        len--;
     }
     return b;
 }
 
-
-
-
-void *memset(void *s, int c, size_t n) {
-    unsigned char *p = s;
-    unsigned char value = (unsigned char)c;
-    
-    while (n > 0) {
-        *p++ = value;
-        n--;
-    }
-    
-    return s;
-}
